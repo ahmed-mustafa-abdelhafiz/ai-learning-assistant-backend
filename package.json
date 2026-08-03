@@ -1,0 +1,25 @@
+{
+  "name": "ai-learning-assistant-backend",
+  "version": "1.0.0",
+  "description": "Backend API for an AI-powered learning assistant that processes study documents, generates flashcards and quizzes, tracks user progress, and provides secure authentication.",
+  "private": true,
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {},
+  "engines": {
+    "node": ">=24",
+    "npm": ">=11"
+  },
+  "packageManager": "npm@11.11.0",
+  "keywords": [],
+  "author": "Ahmed Abdelhafiz <ahmed.mustafa.abdelhafiz@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmed-mustafa-abdelhafiz/ai-learning-assistant-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahmed-mustafa-abdelhafiz/ai-learning-assistant-backend/issues"
+  },
+  "homepage": "https://github.com/ahmed-mustafa-abdelhafiz/ai-learning-assistant-backend#readme"
+}
