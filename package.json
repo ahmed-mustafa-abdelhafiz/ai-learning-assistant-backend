@@ -13,7 +13,17 @@
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --fix --cache",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "engines": {
     "node": ">=24",
@@ -37,6 +47,8 @@
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.9.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
     "prettier": "^3.9.6",
     "tsx": "^4.23.5",
     "typescript": "^5.9.3",
