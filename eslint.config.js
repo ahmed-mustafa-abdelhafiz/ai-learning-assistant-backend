@@ -3,6 +3,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import prettierConfig from 'eslint-config-prettier';
+import vitest from '@vitest/eslint-plugin';
 
 export default defineConfig([
   globalIgnores(['dist/**', 'node_modules/**', 'coverage/**']),
@@ -47,9 +48,16 @@ export default defineConfig([
     },
   },
 
-  // Relax rules in test files
+  // Vitest-specific override for test files
   {
     files: ['**/*.test.ts', '**/*.spec.ts', '**/tests/**/*.ts'],
+    plugins: { vitest },
+    extends: [vitest.configs.recommended],
+    languageOptions: {
+      globals: {
+        ...vitest.environments.env.globals,
+      },
+    },
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-argument': 'off',
