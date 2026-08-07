@@ -7,6 +7,7 @@ import { pinoHttp, type ReqId } from 'pino-http';
 import { logger } from './config/logger.js';
 import pino from 'pino';
 import type { ServerResponse } from 'http';
+import mongoose from 'mongoose';
 
 const app = express();
 
@@ -46,11 +47,17 @@ app.use(compression());
 app.use(express.json({ limit: '1mb' }));
 
 app.get('/health', (_req, res) => {
+  const dbState =
+    mongoose.connection.readyState === mongoose.ConnectionStates.connected
+      ? 'connected'
+      : 'disconnected';
+
   res.status(200).json({
     status: 'ok',
+    environment: env.NODE_ENV,
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
-    environment: env.NODE_ENV,
+    database: dbState,
   });
 });
 
