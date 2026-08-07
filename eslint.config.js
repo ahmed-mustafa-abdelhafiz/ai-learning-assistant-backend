@@ -6,7 +6,7 @@ import prettierConfig from 'eslint-config-prettier';
 import vitest from '@vitest/eslint-plugin';
 
 export default defineConfig([
-  globalIgnores(['dist/**', 'node_modules/**', 'coverage/**']),
+  globalIgnores(['node_modules/**', 'dist/**', 'coverage/**']),
 
   {
     files: ['**/*.ts'],
@@ -50,7 +50,7 @@ export default defineConfig([
 
   // Vitest-specific override for test files
   {
-    files: ['**/*.test.ts', '**/*.spec.ts', '**/tests/**/*.ts'],
+    files: ['**/*.test.ts'],
     plugins: { vitest },
     extends: [vitest.configs.recommended],
     languageOptions: {
@@ -59,6 +59,8 @@ export default defineConfig([
       },
     },
     rules: {
+      '@typescript-eslint/no-unsafe-return': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-argument': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',

@@ -9,5 +9,5 @@
     "noEmitOnError": true
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["**/*.test.ts", "**/*.spec.ts"]
+  "exclude": ["src/**/*.test.ts"]
 }
