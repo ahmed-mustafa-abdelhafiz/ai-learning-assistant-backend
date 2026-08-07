@@ -11,6 +11,7 @@ describe('GET /health', () => {
       environment: expect.any(String),
       timestamp: expect.any(String),
       uptime: expect.any(Number),
+      database: 'connected',
     });
   });
 
